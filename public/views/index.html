@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gif Getter</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+  <script src="/scripts/client.js"></script>
+  <script src="/scripts/giphy-service.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body ng-app="giphyApp">
+  <main ng-controller="GiphyController as giphy">
+    <h1>Get Your Gifs!</h1>
+
+    <!-- random button div -->
+    <div>
+      <button ng-click="giphy.getRandomGif()">GIF It To Me!</button>
+      <img ng-show="giphy.randomGifUrl"
+      ng-src="{{giphy.randomGifUrl}}"
+      alt="A random-ass gif{{giphy.imageAlt}}"/>
+    </div>
+    <!-- search form div -->
+    <div>
+      <form class='searchForm'>
+        <input type='text' ng-model='giphy.searchTerm' />
+        <button type='search' ng-click='giphy.searchGif(giphy.searchTerm)'>Search</button>
+      </form>
+      <img ng-repeat="gif in giphy.gifPic"
+      ng-src="{{gif.images.fixed_height.url}}">
+    </div>
+
+  </main>
+</body>
+</html>
