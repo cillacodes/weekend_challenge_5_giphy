@@ -3,8 +3,8 @@ var app = angular.module('giphyApp', ['ngRoute']);
 //configure favorites view
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
-    templateUrl: 'views/index.html',
-    controller: 'HomeController is loaded'
+    templateUrl: 'views/pages/main.html',
+    controller: 'GiphyController as gifCtrl'
   }).when('/favorites', {
     templateUrl: 'views/pages/favorites.html',
     controller: 'FavoritesController as favCtrl'
@@ -13,12 +13,12 @@ app.config(function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 }); //end app.config
 
+// app.controller('DefaultController' function() {
+//   console.log('DefaultController is loaded');
+// });
+
 app.controller('FavoritesController', function() {
   console.log('FavoritesController is loaded');
-});
-
-app.controller('HomeController', function() {
-  console.log('HomeController is loaded');
 });
 
 app.controller('GiphyController', function(GiphyService) {
@@ -41,6 +41,5 @@ app.controller('GiphyController', function(GiphyService) {
     GiphyService.searchGif(searchTerm).then(function(gifs) {
       ctrl.gifPic = gifs;
     });
-
-  }; //end.controller
-});
+  };
+}); //end.controller

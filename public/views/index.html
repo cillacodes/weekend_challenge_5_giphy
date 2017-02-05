@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Gif Generator</title>
-
   <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <script src="vendors/angular.min.js" charset="utf-8"></script>
   <script src="vendors/angular-route.min.js" charset="utf-8"></script>
   <script src="/scripts/client.js"></script>
   <script src="/scripts/giphy-service.js" charset="utf-8"></script>
   <link rel="stylesheet" href="/styles/bootstrap.css">
   <link rel="stylesheet" href="/styles/styles.css">
-  <base href="/"
+  <base href="/">
 </head>
 <body ng-app="giphyApp">
   <main ng-controller="GiphyController as giphy">
     <header>
-      <h1>Gif Generator</h1>
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
@@ -26,28 +23,7 @@
       </nav>
     </header>
 
-    <div id="randomSearchContainer">
-      <!-- random giphy button -->
-      <button class="randomGifButton" ng-click="giphy.getRandomGif()">GIF It To Me!</button>
-
-      <!-- search giphy form  -->
-      <form class='searchForm'>
-        <input type='text' ng-model='giphy.searchTerm' />
-        <button type='search' ng-click='giphy.searchGif(giphy.searchTerm)'>Search</button>
-      </form>
-    </div>
-
-    <!-- giphy display div -->
-    <div id="gifImageContainer">
-      <img class="randomGif"
-      ng-show="giphy.randomGifUrl"
-      ng-src="{{giphy.randomGifUrl}}"
-      alt="A random-ass gif{{giphy.imageAlt}}"/>
-      <br>
-      <img class="searchGif"
-      ng-repeat="gif in giphy.gifPic"
-      ng-src="{{gif.images.fixed_height.url}}">
-    </div>
+    <ng-view></ng-view>
 
   </main>
 </body>
