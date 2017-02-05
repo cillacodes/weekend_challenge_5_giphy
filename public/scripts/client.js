@@ -1,4 +1,25 @@
-var app = angular.module('giphyApp', []);
+var app = angular.module('giphyApp', ['ngRoute']);
+
+//configure favorites view
+app.config(function($routeProvider, $locationProvider) {
+  $routeProvider.when('/', {
+    templateUrl: 'views/index.html',
+    controller: 'HomeController is loaded'
+  }).when('/favorites', {
+    templateUrl: 'views/pages/favorites.html',
+    controller: 'FavoritesController as favCtrl'
+  });
+  //can get rid of #! in index.html
+  $locationProvider.html5Mode(true);
+}); //end app.config
+
+app.controller('FavoritesController', function() {
+  console.log('FavoritesController is loaded');
+});
+
+app.controller('HomeController', function() {
+  console.log('HomeController is loaded');
+});
 
 app.controller('GiphyController', function(GiphyService) {
   console.log('GiphyController loaded');

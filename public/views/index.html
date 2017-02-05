@@ -4,16 +4,27 @@
   <meta charset="UTF-8">
   <title>Gif Generator</title>
 
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <script src="vendors/angular-route.min.js" charset="utf-8"></script>
   <script src="/scripts/client.js"></script>
   <script src="/scripts/giphy-service.js" charset="utf-8"></script>
   <link rel="stylesheet" href="/styles/bootstrap.css">
   <link rel="stylesheet" href="/styles/styles.css">
+  <base href="/"
 </head>
 <body ng-app="giphyApp">
   <main ng-controller="GiphyController as giphy">
-
-    <h1>Gif Generator</h1>
+    <header>
+      <h1>Gif Generator</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/favorites">Favorites</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <div id="randomSearchContainer">
       <!-- random giphy button -->
