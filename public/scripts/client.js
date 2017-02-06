@@ -3,7 +3,7 @@ var app = angular.module('giphyApp', ['ngRoute']);
 //configure favorites view
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
-    templateUrl: 'views/pages/main.html',
+    templateUrl: 'views/pages/home.html',
     controller: 'GiphyController as gifCtrl'
   }).when('/favorites', {
     templateUrl: 'views/pages/favorites.html',
