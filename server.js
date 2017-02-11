@@ -1,12 +1,15 @@
 var express = require('express');
 var index = require('./routes/index');
-var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
+var favorites = require("./routes/gif");
+
+var app = express();
 
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
+app.use('/gif', favorites); //gif.js
 
 app.use('/', index);
 app.use('/*', index);

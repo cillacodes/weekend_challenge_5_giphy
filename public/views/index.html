@@ -7,6 +7,8 @@
   <script src="vendors/angular.min.js" charset="utf-8"></script>
   <script src="vendors/angular-route.min.js" charset="utf-8"></script>
   <script src="/scripts/client.js"></script>
+  <script src="/scripts/favorites.controller.js" charset="utf-8"></script>
+  <script src="/scripts/favorites-service.js" charset="utf-8"></script>
   <script src="/scripts/giphy-service.js" charset="utf-8"></script>
   <link rel="stylesheet" href="/styles/bootstrap.css">
   <link rel="stylesheet" href="/styles/styles.css">
@@ -19,7 +21,7 @@
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/favorites">Favorites</a></li>
+          <li><a href="/favorites" ng-controller="FavoritesController as favCtrl">Favorites</a></li>
         </ul>
       </nav>
     </header>

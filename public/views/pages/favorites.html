@@ -1,3 +1,8 @@
-<div id="favorites" ng-controller="">
-
-</div>
+<main ng-controller="FavoritesController as favCtrl" id="favorites">
+  <ul>
+    <li ng-repeat="fav in favorites.gif">
+      <img ng-source={{fav.gif_url}} alt="Image of {{fav.gif_url}}">
+      <p>{{fav.comment}}</p>
+    </li>
+  </ul>
+</main>

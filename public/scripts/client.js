@@ -13,33 +13,29 @@ app.config(function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 }); //end app.config
 
-// app.controller('DefaultController' function() {
-//   console.log('DefaultController is loaded');
-// });
 
-app.controller('FavoritesController', function() {
-  console.log('FavoritesController is loaded');
-});
 
 app.controller('GiphyController', function(GiphyService) {
   console.log('GiphyController loaded');
 
-  var ctrl = this;
-  ctrl.gifPic = [];
+var ctrl = this;
 
-  ctrl.getRandomGif = function() {
-    // console.log("randomGif", gif);
-    GiphyService.getRandomGif().then(function(gifUrl) {
-      ctrl.randomGifUrl = gifUrl.image_url;
-      ctrl.imageAlt = gifUrl.url;
-      console.log(gifUrl);
-    });
-  };
+ctrl.getRandomGif = function() {
+  // console.log("randomGif", gif);
+  GiphyService.getRandomGif().then(function(gifUrl) {
+    ctrl.randomGifUrl = gifUrl.image_url;
+    ctrl.imageAlt = gifUrl.url;
+    console.log(gifUrl);
+    // ctrl.gifPic = [];
+    // ctrl.gifPic.push({ gif_url: gifUrl.image_url });
 
+  });
+};
 
-  ctrl.searchGif = function(searchTerm) {
-    GiphyService.searchGif(searchTerm).then(function(gifs) {
-      ctrl.gifPic = gifs;
-    });
-  };
+ctrl.searchGif = function(searchTerm) {
+  GiphyService.searchGif(searchTerm).then(function(gifs) {
+    ctrl.gifPic = gifs;
+  });
+};
+
 }); //end.controller
